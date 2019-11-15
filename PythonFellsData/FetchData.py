@@ -24,6 +24,10 @@ def degreeToDecimal(dms) :
 
 # Method to read the Wikipedia page for a specific fell, extract the latitude and longitude values from the page and return
 # them as a tuple
+def getLocationDummy(fellInfo) :
+    print(fellInfo["name"])
+    return ("54.32", "-3.045")
+
 def getLocation(fellInfo) :
     print(fellInfo["name"])
     # Keep the requests to a slow rate
@@ -71,7 +75,7 @@ pFell = re.compile(r"(.*), (\d+)\s+m \(([0-9,]*)\s+ft\)")
 bookNos = { "One" : 1, "Two" : 2, "Three" :3, "Four" : 4, "Five" : 5, "Six" : 6, "Seven" : 7}
 
 # Find the book heading elements and the lists of fells interspersed for each book
-nodes = BsObj.findAll(["h2", "li"])
+nodes = BsObj.findAll(["h3", "li"])
 
 # 
 fellCount=0
